@@ -1,7 +1,16 @@
-import { Button } from "@/components/ui/button";
+"use client";
+
+import { Modal } from "@/components/ui/modal";
+import { UserButton } from "@clerk/nextjs";
 
 const SetupPage = () => {
-  return <Button size="default">Click Me</Button>;
+  return (
+    <div className="p-4">
+      <Modal title="sayaf" description="Post man" isOpen onClose={() => {}}>
+        Children
+      </Modal>
+    </div>
+  );
 };
 
 export default SetupPage;
