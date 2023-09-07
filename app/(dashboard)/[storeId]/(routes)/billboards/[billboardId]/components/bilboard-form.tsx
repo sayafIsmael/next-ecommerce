@@ -63,12 +63,17 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
   const onSubmit = async (data: BillboardFormValues) => {
     try {
       setLoading(true);
-      if(initialData){
-        await axios.patch(`/api/stores/${params.storeId}/billboards/${params.billboardId}`, data);
-      }else {
-        await axios.post(`/api/stores/${params.storeId}/billboards`, data);
+      if (initialData) {
+        await axios.patch(
+          `/api/${params.storeId}/billboards/${params.billboardId}`,
+          data
+        );
+      } else {
+        console.log("data: ", data);
+        await axios.post(`/api/${params.storeId}/billboards`, data);
       }
       router.refresh();
+      router.push(`/${params.storeId}/billboards`)
       toast.success(toastMessage);
     } catch (error) {
       toast.error("Something went wrong!");
@@ -80,12 +85,16 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
   const onDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/stores/${params.storeId}/billboards/${params.billboardId}`);
+      await axios.delete(
+        `/api/stores/${params.storeId}/billboards/${params.billboardId}`
+      );
       router.refresh();
       router.push("/");
       toast.success("Billboard deleted!");
     } catch (error) {
-      toast.error("Make sure you have deleted all categories using this billboard");
+      toast.error(
+        "Make sure you have deleted all categories using this billboard"
+      );
     } finally {
       setLoading(false);
       setOpen(false);
@@ -126,11 +135,11 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
               <FormItem>
                 <FormLabel>Background image</FormLabel>
                 <FormControl>
-                  <ImageUpload 
-                  value={field.value ? [field.value] : []}
-                  disabled={loading}
-                  onChange={(url)=> field.onChange(url)}
-                  onRemove={() => field.onChange("")}
+                  <ImageUpload
+                    value={field.value ? [field.value] : []}
+                    disabled={loading}
+                    onChange={(url) => field.onChange(url)}
+                    onRemove={() => field.onChange("")}
                   />
                 </FormControl>
                 <FormMessage />
