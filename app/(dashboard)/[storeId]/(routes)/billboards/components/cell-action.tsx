@@ -1,8 +1,14 @@
 "use client";
 
-import { MoreHorizontal } from "lucide-react";
+import { Edit, MoreHorizontal } from "lucide-react";
 
-import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu";
 import { BillboardColumn } from "./columns";
 import { Button } from "@/components/ui/button";
 
@@ -21,6 +27,13 @@ export const CellAction: React.FC<CellAction> = () => {
           <MoreHorizontal className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuLabel>Action</DropdownMenuLabel>
+        <DropdownMenuItem>
+          <Edit className="mr-2 h-4 w-4" />
+          Update
+        </DropdownMenuItem>
+      </DropdownMenuContent>
     </DropdownMenu>
   </div>;
 };
