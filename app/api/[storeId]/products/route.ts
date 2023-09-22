@@ -73,7 +73,7 @@ export async function POST(
         sizeId,
         images: {
           createMany: {
-            data: [...images],
+            data: [ ...images.map((image: { url: string }) => image)],
           },
         },
         isFeatured,

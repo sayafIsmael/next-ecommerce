@@ -309,6 +309,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                     <Checkbox
                       checked={field.value}
                       onCheckedChange={field.onChange}
+                      disabled={loading}
                     />
                   </FormControl>
                   <div className="space-y-1 leading-none">
@@ -331,6 +332,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                     <Checkbox
                       checked={field.value}
                       onCheckedChange={field.onChange}
+                      disabled={loading}
                     />
                   </FormControl>
                   <div className="space-y-1 leading-none">
