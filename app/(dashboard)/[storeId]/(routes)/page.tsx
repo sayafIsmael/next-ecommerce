@@ -9,7 +9,7 @@ import Heading from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import { getStockCount } from "@/actions/get-stock-count";
 import Overview from "@/components/overview";
-import { getGraphRevenue } from "@/actions/get-graph-Revenue";
+import { getGraphRevenue } from "@/actions/get-graph-revenue";
 
 interface DashboardPageProps {
   params: { storeId: string };
